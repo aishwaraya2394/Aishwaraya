@@ -5,6 +5,12 @@ import com.example.Entity.Product;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/*
+* This class contains the local data set and will be called once the Repository is initialized.
+* This shall populate the application with data
+* */
+
 public class DataConfig {
 
     private List<Product> products = new ArrayList<>();

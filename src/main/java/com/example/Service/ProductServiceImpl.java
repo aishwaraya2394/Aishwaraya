@@ -19,6 +19,15 @@ public class ProductServiceImpl implements ProductService{
     private static final Logger logger = Logger.getLogger("ProductServiceImpl.class");
     private static final ProductRepository productRepository = new ProductRepository();
 
+
+    /*
+     * The four methods defined below are used to fetch data from the Repository
+     * and add a new product to the List
+     * The products can be fetched based on either name, id or all at once
+     * */
+
+
+    //Parse the json string into individual variables for creating new Product
     @Override
     public Long addNewProducts(String json) {
 
@@ -46,6 +55,7 @@ public class ProductServiceImpl implements ProductService{
         return productRepository.getAllProducts();
     }
 
+    //Based on the similarity to user provided name, Products with relevant names are returned
     @Override
     public List<Product> getProductByName(String name) {
 

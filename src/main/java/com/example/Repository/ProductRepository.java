@@ -20,6 +20,12 @@ public class ProductRepository {
 
     }
 
+    /*
+     * The four methods defined below are used to fetch data from the Repository(currently the local ArrayList)
+     * and to add a new product to the List
+     * The products can be fetched based on either name, id or all at once
+     * */
+
     public Long addNewProduct(String name, String category, String description, double price, String imageUrl){
 
         Long id = null;
@@ -47,7 +53,6 @@ public class ProductRepository {
 
         return productListByName;
     }
-
 
     public Product getProductById(Long id){
         return products.stream().filter(x -> x.getId().equals(id)).toList().getFirst();

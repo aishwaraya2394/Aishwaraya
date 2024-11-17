@@ -16,6 +16,7 @@ public class ProductController {
         productService = new ProductServiceImpl();
     }
 
+    //Request to handle new Product addition process
     @PostMapping("/products")
     public String addNewProduct(@RequestBody String jsonProduct){
 
@@ -26,6 +27,7 @@ public class ProductController {
         return ("Product addition failed");
     }
 
+    //Request to get all Products currently present in Repository
     @GetMapping("/products")
     public List<Product> getAllProducts(@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "2") int size){
 
@@ -37,6 +39,7 @@ public class ProductController {
 
     }
 
+    //Request to search for Products based on Name with relevant details even if it has typos or is incomplete
     @GetMapping("/search")
     public List<Product> getProductsByName(@RequestParam String name){
 
@@ -44,6 +47,7 @@ public class ProductController {
 
     }
 
+    //Request to get Product based on Id
     @GetMapping("/products/{id}")
     public Product getProductById(@PathVariable Long id){
 
