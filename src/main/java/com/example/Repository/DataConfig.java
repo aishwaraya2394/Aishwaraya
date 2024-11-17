@@ -9,7 +9,7 @@ public class DataConfig {
 
     private List<Product> products = new ArrayList<>();
 
-    public List<Product> ladInitialData(){
+    public List<Product> loadInitialData(){
 
         products.add(new Product(1L,"Table1","Table","Study Table",129.99D,"https://www.pexels.com/photo/wireless-laptop-with-mouse-on-desk-27467772/"));
         products.add(new Product(2L,"Table2","Table","Study Table",155.99D,"https://www.pexels.com/photo/computer-on-a-wooden-desk-with-the-designer-s-business-website-on-the-screen-7181188/"));
