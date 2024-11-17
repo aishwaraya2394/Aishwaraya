@@ -28,35 +28,3 @@ async function getProductDetails(){
     }
 }
 
-async function addNewProduct(){
-    const name = document.getElementById('name').value;
-    const category = document.getElementById('category').value;
-    const description = document.getElementById('description').value;
-    const price = document.getElementById('price').value;
-    const imageUrl = document.getElementById('imageUrl').value;
-
-    try{
-        const response = await fetch(`/products`, {
-                method:'POST',
-                headers: {'Content-type' : 'application/json'},
-                body: JSON.stringify ({name,category,description,price,imageUrl})
-            });
-
-            const message = await response.text();
-
-            document.getElementById('message').textContent = message;
-            if (response.ok) {
-                window.location.assign("/search.html");
-            } else {
-                console.error(`Error adding product: ${message}`);
-            }
-    }
-    catch(error){
-        console.error('An error occured while adding the product:', error);
-
-    }
-
-
-
-
-}

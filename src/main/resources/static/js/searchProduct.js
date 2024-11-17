@@ -1,13 +1,6 @@
-let currentPage = 0;
-const pageSize =2;
-console.log('entered getAllProducts')
-
-
 async function getAllProducts(){
-console.log('entered getAllProducts')
     try{
         const response = await fetch(`/products`);
-        console.log('sent request for fetching all Products')
 
         if(!response.ok){
 
@@ -24,6 +17,7 @@ console.log('entered getAllProducts')
     }
 
 }
+
 
 function displayProducts(productsToDisplay){
 
@@ -46,8 +40,7 @@ function displayProducts(productsToDisplay){
 
 async function searchProduct(name = ''){
 
-    if(name === ''){
-        currentPage = 0;
+    if(name === '')
         getAllProducts();
         return;
     }
@@ -69,18 +62,6 @@ async function searchProduct(name = ''){
 }
 
 
-document.getElementById('prevPage').addEventListener('click', () => {
-    if(currentPage>0){
-        currentPage--;
-        searchProduct();
-    }
-});
-document.getElementById('nextPage').addEventListener('click', () => {
-    currentPage++;
-    searchProduct();
-});
-
-
 
 document.getElementById('searchBar').addEventListener('input', function (){
     const name1 = this.value.trim();
@@ -88,6 +69,26 @@ document.getElementById('searchBar').addEventListener('input', function (){
 });
 
 
+async function addNewProduct(){
+    const name = document.getElementById('name').value;
+    const category = document.getElementById('category').value;
+    const description = document.getElementById('description').value;
+    const price = parseFloat(document.getElementById('price').value);
+    const imageUrl = document.getElementById('imageUrl').value;
 
+    try{
+        const response = await fetch(`/products`, {
+                method:'POST',
+                headers: {'Content-type' : 'application/json'},
+                body: JSON.stringify ({name,category,description,price,imageUrl})
+            });
 
+            const message = await response.json();
 
+            document.getElementById('message').textContent = message;
+    }
+    catch(error){
+        console.error('An error occurred while adding the product:', error);
+
+    }
+}
