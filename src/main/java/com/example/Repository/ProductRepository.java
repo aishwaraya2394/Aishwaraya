@@ -3,8 +3,7 @@ package com.example.Repository;
 import com.example.Entity.Product;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Repository
@@ -28,8 +27,9 @@ public class ProductRepository {
 
     public Long addNewProduct(String name, String category, String description, double price, String imageUrl){
 
+        int size = products.size();
+        idCounter = products.get(size-1).getId();
         Long id = null;
-        idCounter = products.getLast().getId();
         id = idCounter++;
         products.add(new Product(id,name,category,description,price,imageUrl));
 
@@ -55,7 +55,8 @@ public class ProductRepository {
     }
 
     public Product getProductById(Long id){
-        return products.stream().filter(x -> x.getId().equals(id)).toList().getFirst();
+        return products.stream().filter(
+                x -> x.getId().equals(id)).toList().get(0);
     }
 
 }

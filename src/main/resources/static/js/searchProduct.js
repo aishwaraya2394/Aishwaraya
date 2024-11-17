@@ -13,7 +13,7 @@ async function getAllProducts(){
 
         displayProducts(products);
 
-        document.byElementId('prevPage').addEventListener('click', function() => {
+        document.byElementId('prevPage').addEventListener('click', () => {
 
             if(currentPage > 0){
                 currentPage--;
@@ -22,7 +22,7 @@ async function getAllProducts(){
 
         });
 
-        document.byElementId('nextPage').addEventListener('click', function() => {
+        document.byElementId('nextPage').addEventListener('click', () => {
 
             currentPage++;
             getAllProducts();
@@ -42,7 +42,7 @@ function displayProducts(products){
     const tableBody = document.byElementId('productsTable');
     tableBody.innerHTML = '';
 
-    products.forEach)(product => {
+    products.forEach(product => {
         const row = document.createElement('tr');
         row.innerHTML = `
             <td>${product.id}</td>
@@ -70,7 +70,7 @@ async function searchProduct(name = ' '){
 
         displayProducts(productsByName);
 
-        document.byElementId('prevPage').addEventListener('click', function() => {
+        document.byElementId('prevPage').addEventListener('click', () => {
 
             if(currentPage > 0){
                 currentPage--;
@@ -79,7 +79,7 @@ async function searchProduct(name = ' '){
 
         });
 
-        document.byElementId('nextPage').addEventListener('click', function() => {
+        document.byElementId('nextPage').addEventListener('click', () => {
 
             currentPage++;
             searchProduct();
@@ -91,7 +91,7 @@ async function searchProduct(name = ' '){
     }
 }
 
-document.byElementId('searchBar').addEventListener('input', function () => {
+document.byElementId('searchBar').addEventListener('input', function ()  {
     const name = this.value;
     searchProduct(name);
 });
