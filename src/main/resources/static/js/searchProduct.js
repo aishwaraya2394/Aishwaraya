@@ -44,7 +44,7 @@ function displayProducts(productsToDisplay){
 }
 
 
-async function searchProduct(name = ' '){
+async function searchProduct(name = ''){
 
     if(name === ''){
         currentPage = 0;
@@ -68,8 +68,26 @@ async function searchProduct(name = ' '){
     }
 }
 
+
+document.getElementById('prevPage').addEventListener('click', () => {
+    if(currentPage>0){
+        currentPage--;
+        searchProduct();
+    }
+});
+document.getElementById('nextPage').addEventListener('click', () => {
+    currentPage++;
+    searchProduct();
+});
+
+
+
 document.getElementById('searchBar').addEventListener('input', function (){
     const name1 = this.value.trim();
     searchProduct(name1);
 });
+
+
+
+
 

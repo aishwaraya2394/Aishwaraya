@@ -34,13 +34,9 @@ public class ProductController {
 
     //Request to get all Products currently present in Repository
     @GetMapping("/products")
-    public List<Product> getAllProducts(@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "6") int size){
+    public List<Product> getAllProducts(){
 
-        List<Product>products = productService.getAllProducts();
-        int start = page * size;
-        int end = Math.min(start + size , products.size());
-
-        return products.subList(start, end);
+        return productService.getAllProducts();
 
     }
 
