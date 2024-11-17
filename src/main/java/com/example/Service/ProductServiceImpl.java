@@ -5,6 +5,7 @@ import com.example.Repository.ProductRepository;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ public class ProductServiceImpl implements ProductService{
 
 
     private static final Logger logger = Logger.getLogger("ProductServiceImpl.class");
+
     private static final ProductRepository productRepository = new ProductRepository();
 
 
@@ -57,14 +59,14 @@ public class ProductServiceImpl implements ProductService{
 
     //Based on the similarity to user provided name, Products with relevant names are returned
     @Override
-    public List<Product> getProductByName(String name) {
+    public List<Product> getProductByName(String name, int limit) {
 
         FuzzySearchImplementation fuzzy = new FuzzySearchImplementation();
         List<String> productsByName = new ArrayList<>();
 
         for(Product product : getAllProducts()){
 
-            if(fuzzy.fuzzyMatch(name, product.getName())){
+            if(fuzzy.fuzzyMatch(name, product.getName(),limit)){
                 productsByName.add(product.getName());
             }
         }

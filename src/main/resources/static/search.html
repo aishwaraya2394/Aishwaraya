@@ -3,34 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        table {
+        width: 50%;
+        border-collapse: collapse;
+        margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid ;
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
 </head>
 <body>
     <h1 style="text-align: center;">Search Products</h1>
     <input type="text" id="searchBar" placeholder="Search for Items..." style="padding: 10px; width: 50%; margin-bottom: 20px
 border: 1px solid; border-radius: 4px;">
 
-
     <table>
         <thead>
-            <tr>
+            <tr >
                 <th>Id</th>
                 <th>Name</th>
                 <th>Category</th>
                 <th>Description</th>
                 <th>Price</th>
-                <th>ImageUrl</th>
             </tr>
         </thead>
         <tbody id="productsTable"></tbody>
     </table>
-    <div class="controls">
+    <div class="controls" style="text-align: center;">
         <button id="prevPage">Previous Page</button>
         <button id="nextPage">Next Page</button>
     </div>
 
 
     <h1 style="text-align: center;">Add New Product</h1>
-    <form id="addNewProductForm">
+    <form id="addNewProductForm" style="text-align: center;">
         <label for="name">Name</label> <input type="text" id="name" required>
         <label for="name">Category</label> <input type="text" id="category" required>
         <label for="name">Description</label> <input type="text" id="description" required>
@@ -41,10 +51,12 @@ border: 1px solid; border-radius: 4px;">
     </form>
     <div id="message"></div>
 
-    <script src="js/searchProduct.js">
-        getAllProducts();
-    </script>
 
+    <script src="js/searchProduct.js"></script>
+
+    <script>
+        getAllProducts()
+    </script>
 
 </body>
 </html>

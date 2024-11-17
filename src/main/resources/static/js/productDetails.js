@@ -1,4 +1,4 @@
-const params = new URLSearchParams(windows.location.search);
+const params = new URLSearchParams(window.location.search);
 const id =params.get('id');
 
 async function getProductDetails(){
@@ -14,15 +14,16 @@ async function getProductDetails(){
 
         const productDetails = document.getElementById('productDetails');
         productDetails.innerHTML = `
-            <p><strong>Name:</strong>$<product.name></p>
-            <p><strong>Category:</strong>$<product.name></p>
-            <p><strong>Description:</strong>$<product.name></p>
-            <p><strong>Price:</strong>$<product.name></p>
-            <p><strong>ImageUrl:</strong><img src ="/img/${product.id}.jpeg"
+            <p><strong>Name:</strong>${product.name}</p>
+            <p><strong>Category:</strong>${product.category}</p>
+            <p><strong>Description:</strong>${product.description}</p>
+            <p><strong>Price:</strong>${product.price}</p>
+            <p><img src ="/images/${product.id}.jpeg"
                     style="max-width:300px; max-height:300px"></p>
         `;
     }
-    catch(Error e){
+    catch(error){
+
         console.error('Error fetching Product details:', error);
     }
 }

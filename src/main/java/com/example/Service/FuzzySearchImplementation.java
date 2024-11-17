@@ -1,16 +1,16 @@
 package com.example.Service;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
 
 public class FuzzySearchImplementation {
 
-    //A properties file defined value to control the edit distance value to restrict the fuzzy search
-    @Value("${editDistanceLimit}")
-    private int limit;
 
-    public boolean fuzzyMatch(String name, String productName){
+    public boolean fuzzyMatch(String name, String productName, int limit){
 
-        int editDistance = levenshteinDistance(name,productName);
+        int editDistance = levenshteinDistance(name.toLowerCase(),productName.toLowerCase());
 
         //Verifying if the product name is relevant or not based on edit distance score
         return (editDistance < Math.max(name.length()/2, limit));
