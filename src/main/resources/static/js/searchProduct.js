@@ -91,9 +91,9 @@ async function searchProduct(name = ' '){
     }
 }
 
-document.byElementId('searchBar').addEventListener('input', function ()  {
-    const name = this.value;
-    searchProduct(name);
+document.getElementById('searchBar').addEventListener('input', function (){
+    const name1 = this.value.trim();
+    searchProduct(name1);
 });
 
 
