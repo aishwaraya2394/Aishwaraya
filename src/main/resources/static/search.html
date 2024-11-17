@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1 style="text-align: center;">Search Products</h1>
+    <input type="text" id="searchBar" placeholder="Search for Items..." style="padding: 10px; width: 50%; margin-bottom: 20px
+border: 1px solid; border-radius: 4px;">
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>ImageUrl</th>
+            </tr>
+        </thead>
+        <tbody id="productsTable"></tbody>
+    </table>
+    <div class="controls">
+        <button id="prevPage">Previous Page</button>
+        <button id="nextPage">Next Page</button>
+    </div>
+
+
+    <h1 style="text-align: center;">Add New Product</h1>
+    <form id="addNewProductForm">
+        <label for="name">Name</label> <input type="text" id="name" required>
+        <label for="name">Category</label> <input type="text" id="category" required>
+        <label for="name">Description</label> <input type="text" id="description" required>
+        <label for="name">Price</label> <input type="text" id="price" required>
+        <label for="name">ImageUrl</label> <input type="text" id="imageUrl" required>
+
+        <button type="submit" id="addNewProduct">Add New Product</button>
+    </form>
+    <div id="message"></div>
+
+    <script src="js/searchProduct.js"></script>
+
+
+</body>
+</html>
