@@ -40,7 +40,7 @@ function displayProducts(productsToDisplay){
 
 async function searchProduct(name = ''){
 
-    if(name === '')
+    if(name === ''){
         getAllProducts();
         return;
     }
